@@ -1,5 +1,9 @@
 public class Code {
     public static void main(String[] args) {
-        System.out.print("JOOOOOOOOOOOOOOO");
+        if (args.length < 1 || Integer.parseInt(args[0]) < 1) {
+            return;
+        }
+
+        System.out.print("Hello world!");
     }
 }
