@@ -4,6 +4,6 @@ public class Code {
             return;
         }
 
-        System.out.print("Hello world!");
+        System.out.print("malloc ");
     }
 }
