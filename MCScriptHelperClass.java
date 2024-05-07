@@ -7,9 +7,11 @@ public class MCScriptHelperClass {
 
     public MCScriptHelperClass(String[] args) {
         this.args = args;
-        int length = args[1].split("@@").length;
-        this.memoryData = new MemoryData[length];
-        loadMemory();
+        if (args.length >= 2) {
+            int length = args[1].split("@@").length;
+            this.memoryData = new MemoryData[length];
+            loadMemory();
+        }
     }
 
     private void loadMemory() {
@@ -133,4 +135,3 @@ public class MCScriptHelperClass {
         }
     }
 }
-
