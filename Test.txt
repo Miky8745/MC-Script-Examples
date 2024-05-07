@@ -1,5 +1,12 @@
-public class Test {
+public class Code extends MCScriptHelperClass {
+
+    public Code(String[] args) {
+        super(args);
+    }
+
     public static void main(String[] args) {
-        System.out.print("JOOOOOOOOOOOOOOO");
+        Code code = new Code(args);
+
+        code.output.write("str", "Hello there!!!", "ok");
     }
 }
