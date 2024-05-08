@@ -21,7 +21,7 @@ public class Code extends MCScriptHelperClass {
         if (nullCheck(test)) {return;}
         output.print(test);
 
-        if (test.equals("Hello world!")) {
+        if (test.strip().equals("Hello world!")) {
             output.print("OOOOOOOOOOOOOOO");
         }
     }
