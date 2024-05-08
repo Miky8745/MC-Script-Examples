@@ -129,6 +129,15 @@ public class MCScriptHelperClass {
         private void makeSyscall(String cmd) {
             print("syscall&" + cmd);
         }
+
+        private String parseValue(String value) {
+            String[] parts = value.split(" ");
+            StringBuilder builder = new StringBuilder();
+            for (String part : parts) {
+                builder.append(part).append("***");
+            }
+            return builder.toString();
+        }
     }
 
     private static class MemoryData<T> {
