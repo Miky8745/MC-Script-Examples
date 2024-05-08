@@ -6,17 +6,21 @@ public class Code extends MCScriptHelperClass {
 
     public static void main(String[] args) {
         Code code = new Code(args);
-
-        if (code.input.getIncomingPower() > 0) {
-            code.output.write("str", "Hello world!", "test");
-        }
-
-        code.output.print(code.input.readString("test"));
-
-        if (code.input.readString("test").equals("Hello world!")) {
-            code.output.print("OOOOOOOOOOOOOOO");
-        }
-
+        code.execute();
         code.end();
+    }
+
+    public void execute() {
+        if (input.getIncomingPower() > 0) {
+            output.write("str", "Hello world!", "test");
+        }
+
+        String test = input.readString("test");
+        if (nullCheck(test)) {return;}
+        this.output.print(test);
+
+        if (input.readString("test").equals("Hello world!")) {
+            output.print("OOOOOOOOOOOOOOO");
+        }
     }
 }

@@ -32,6 +32,10 @@ public class MCScriptHelperClass {
         System.out.println(result.toString());
     }
 
+    public boolean nullCheck(Object o) {
+        return o == null;
+    }
+
     private static class Utils {
 
         private static MemoryData<?> getMemoryDataFromString(String line) {
