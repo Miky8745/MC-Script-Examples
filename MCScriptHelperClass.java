@@ -135,8 +135,11 @@ public class MCScriptHelperClass {
         private String parseValue(String value) {
             String[] parts = value.split(" ");
             StringBuilder builder = new StringBuilder();
-            for (String part : parts) {
-                builder.append(part).append("***");
+            for (int i = 0; i < parts.length; i++) {
+                String part = parts[i];
+                if (i < parts.length-1) {
+                    builder.append(part).append("***");
+                }
             }
             return builder.toString();
         }
