@@ -113,6 +113,7 @@ public class MCScriptHelperClass {
 
     class Output {
         public void write(String datatype, String value, String topic) {
+            value = parseValue(value);
             String cmd = "write#" + datatype + "#" + value + "#" + topic;
             makeSyscall(cmd);
         }
@@ -122,6 +123,7 @@ public class MCScriptHelperClass {
         }
 
         public void write(String datatype, String value, String topic, int address) {
+            value = parseValue(value);
             String cmd = "writeIndex#" + address + "#" + datatype + "#" + value + "#" + topic;
             makeSyscall(cmd);
         }
