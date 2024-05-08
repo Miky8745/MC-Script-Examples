@@ -137,8 +137,9 @@ public class MCScriptHelperClass {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < parts.length; i++) {
                 String part = parts[i];
+                builder.append(part);
                 if (i < parts.length-1) {
-                    builder.append(part).append("***");
+                    builder.append("***");
                 }
             }
             return builder.toString();
