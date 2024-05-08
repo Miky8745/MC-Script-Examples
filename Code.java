@@ -24,5 +24,6 @@ public class Code extends MCScriptHelperClass {
         if (test.strip().equals("Hello world!")) {
             output.print("OOOOOOOOOOOOOOO");
         }
+        output.print(String.valueOf(test.strip().equals("Hello world!")));
     }
 }
