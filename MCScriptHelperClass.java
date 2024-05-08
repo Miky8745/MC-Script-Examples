@@ -43,9 +43,9 @@ public class MCScriptHelperClass {
             if (parts.length < 3) {
                 return null;
             }
-            String topic = parts[0];
+            String topic = toNormal(parts[0]);
             String tClass = parts[1];
-            String value = parts[2];
+            String value = toNormal(parts[2]);
 
             switch (tClass) {
                 case "java.lang.Integer" -> {
@@ -64,6 +64,15 @@ public class MCScriptHelperClass {
                     return null;
                 }
             }
+        }
+
+        private static String toNormal(String text) {
+            String[] parts = text.split("\\*\\*\\*");
+            StringBuilder builder = new StringBuilder();
+            for (String part : parts) {
+                builder.append(part).append(" ");
+            }
+            return parts.length > 1 ? builder.toString() : text;
         }
     }
 
