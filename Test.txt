@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Code extends MCScriptHelperClass {
 
     public Code(String[] args) {
@@ -13,9 +11,9 @@ public class Code extends MCScriptHelperClass {
             code.output.write("str", "Hello world!", "test");
         }
 
-        code.output.print(String.valueOf(Objects.equals(code.input.readString("test"), "Hello world!")) + " final");
+        code.output.print(code.input.readString("test"));
 
-        if (Objects.equals(code.input.readString("test"), "Hello world!")) {
+        if (code.input.readString("test").equals("Hello world!")) {
             code.output.print("OOOOOOOOOOOOOOO");
         }
 
