@@ -65,6 +65,7 @@ public class MCScriptHelperClass {
         }
 
         public String readString(String topic) {
+            if (memoryData == null || memoryData.length < 1) {return null;}
             for (MemoryData<?> item : memoryData) {
                 if (item == null) {continue;}
                 if (item.topic.equals(topic)) {
