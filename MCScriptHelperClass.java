@@ -5,13 +5,17 @@ public class MCScriptHelperClass {
     public Input input = new Input();
     public Output output = new Output();
     private StringBuilder result = new StringBuilder();
+    private final boolean hasMemory;
 
     public MCScriptHelperClass(String[] args) {
         this.args = args;
         if (args.length >= 2) {
+            hasMemory = true;
             int length = args[1].split("@@").length;
             this.memoryData = new MemoryData[length];
             loadMemory();
+        } else {
+            hasMemory = false;
         }
     }
 
@@ -64,8 +68,12 @@ public class MCScriptHelperClass {
             return Integer.parseInt(args[0]);
         }
 
+        public boolean hasMemory() {
+            return hasMemory;
+        }
+
         public String readString(String topic) {
-            if (memoryData == null || memoryData.length < 1) {return null;}
+            if (!hasMemory) {return null;}
             for (MemoryData<?> item : memoryData) {
                 if (item == null) {continue;}
                 if (item.topic.equals(topic)) {
@@ -77,6 +85,7 @@ public class MCScriptHelperClass {
         }
 
         public Integer readInt(String topic) {
+            if (!hasMemory) {return null;}
             for (MemoryData<?> item : memoryData) {
                 if (item.topic.equals(topic)) {
                     return Integer.valueOf(item.get().toString());
@@ -87,6 +96,7 @@ public class MCScriptHelperClass {
         }
 
         public Float readFloat(String topic) {
+            if (!hasMemory) {return null;}
             for (MemoryData<?> item : memoryData) {
                 if (item.topic.equals(topic)) {
                     return Float.valueOf(item.get().toString());
