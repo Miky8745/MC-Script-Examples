@@ -10,13 +10,18 @@ public class Code extends MCScriptHelperClass {
         Code code = new Code(args);
 
         code.output.print(String.valueOf(code.input.getIncomingPower()));
+        code.output.print(String.valueOf(code.input.getIncomingPower() > 0));
 
-        if (code.input.getIncomingPower() > 0 && !Objects.equals(code.input.readString("test"), "Hello World!")) {
+        if (code.input.getIncomingPower() > 0) {
             code.output.write("str", "Hello world!", "test");
         }
+
+        code.output.print(String.valueOf(Objects.equals(code.input.readString("test"), "Hello world!")) + " final");
 
         if (Objects.equals(code.input.readString("test"), "Hello world!")) {
             code.output.print("OOOOOOOOOOOOOOO");
         }
+
+        code.end();
     }
 }

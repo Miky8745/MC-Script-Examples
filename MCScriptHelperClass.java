@@ -4,6 +4,7 @@ public class MCScriptHelperClass {
     private MemoryData<?>[] memoryData;
     public Input input = new Input();
     public Output output = new Output();
+    private StringBuilder result = new StringBuilder();
 
     public MCScriptHelperClass(String[] args) {
         this.args = args;
@@ -21,6 +22,10 @@ public class MCScriptHelperClass {
         for (int i = 0; i < lines.length; i++) {
             memoryData[i] = Utils.getMemoryDataFromString(lines[i]);
         }
+    }
+
+    public void end() {
+        System.out.println(result.toString());
     }
 
     private static class Utils {
@@ -61,6 +66,7 @@ public class MCScriptHelperClass {
 
         public String readString(String topic) {
             for (MemoryData<?> item : memoryData) {
+                if (item == null) {continue;}
                 if (item.topic.equals(topic)) {
                     return item.get().toString();
                 }
@@ -97,7 +103,7 @@ public class MCScriptHelperClass {
         }
 
         public void print(String message) {
-            System.out.println(message);
+            result.append(message).append("@@");
         }
 
         public void write(String datatype, String value, String topic, int address) {
