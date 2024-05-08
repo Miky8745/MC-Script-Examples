@@ -15,9 +15,11 @@ public class Code extends MCScriptHelperClass {
             output.write("str", "Hello world!", "test");
         }
 
+        output.print(String.valueOf(input.getIncomingPower() > 0));
+
         String test = input.readString("test");
         if (nullCheck(test)) {return;}
-        this.output.print(test);
+        output.print(test);
 
         if (input.readString("test").equals("Hello world!")) {
             output.print("OOOOOOOOOOOOOOO");
