@@ -43,9 +43,9 @@ public class MCScriptHelperClass {
             if (parts.length < 3) {
                 return null;
             }
-            String topic = toNormal(parts[0]);
+            String topic = toNormal(parts[0].strip());
             String tClass = parts[1];
-            String value = toNormal(parts[2]);
+            String value = toNormal(parts[2].strip());
 
             switch (tClass) {
                 case "java.lang.Integer" -> {
