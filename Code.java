@@ -9,9 +9,6 @@ public class Code extends MCScriptHelperClass {
     public static void main(String[] args) {
         Code code = new Code(args);
 
-        code.output.print(String.valueOf(code.input.getIncomingPower()));
-        code.output.print(String.valueOf(code.input.getIncomingPower() > 0));
-
         if (code.input.getIncomingPower() > 0) {
             code.output.write("str", "Hello world!", "test");
         }
