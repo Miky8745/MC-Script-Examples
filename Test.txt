@@ -12,13 +12,19 @@ public class Code extends MCScriptHelperClass {
     public void execute() {
         if (input.getIncomingPower() > 0) {
             output.memory.write("str", "powered", "test");
+            output.memory.write("int", "1", "works?");
         } else {
-            output.memory.clear();
+            output.memory.delete("test");
         }
 
         String isPowered = input.readString("test");
         if (!nullCheck(isPowered)) {
             output.print(isPowered);
+        }
+
+        Integer works = input.readInt("works?");
+        if(!nullCheck(works)) {
+            output.print(String.valueOf(works));
         }
     }
 }
