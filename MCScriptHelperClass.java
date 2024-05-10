@@ -126,6 +126,7 @@ public class MCScriptHelperClass {
 
     class Output {
         public Memory memory = new Memory();
+        public Redstone redstone = new Redstone();
 
         class Memory {
             public void write(String datatype, String value, String topic) {
@@ -159,9 +160,16 @@ public class MCScriptHelperClass {
             }
         }
 
-        public void turnOnRedstoneSignal() {
-            String cmd = "turnOn#null";
-            makeSyscall(cmd);
+        class Redstone {
+            public void turnOnRedstoneSignal() {
+                String cmd = "turnOn#null";
+                makeSyscall(cmd);
+            }
+
+            public void setSignalStrength(int power) {
+                String cmd = "setSignalStrength#" + power;
+                makeSyscall(cmd);
+            }
         }
 
         public void print(String message) {

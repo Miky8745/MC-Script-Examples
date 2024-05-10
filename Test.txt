@@ -10,16 +10,21 @@ public class Code extends MCScriptHelperClass {
     }
 
     public void execute() {
-        Integer rawState = input.readInt("state");
-        if (nullCheck(rawState)) {
-            output.memory.write("int", "1", "state");
+        Integer initialized = input.readInt("init");
+        if (nullCheck(initialized)) {
+            output.memory.write("int", "1", "init");
+            output.memory.write("int", "0", "power");
             return;
         }
-        int state = Integer.parseInt(String.valueOf(rawState));
-        String value = String.valueOf(state == 1 ? 0 : 1);
-        output.memory.write("int", value, "state");
-        if (state == 1) {
-            output.turnOnRedstoneSignal();
+
+        Integer strength = input.readInt("power");
+        if (nullCheck(strength)) {return;}
+        int power = Integer.parseInt(String.valueOf(strength));
+        if (input.getIncomingPower() > 0) {
+            output.redstone.turnOnRedstoneSignal();
+            int value = power+1 > 15 ? 0 : power + 1;
+            output.memory.write("int", String.valueOf(value), "power");
+            output.redstone.setSignalStrength(power);
         }
     }
 }
