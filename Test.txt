@@ -6,33 +6,19 @@ public class Code extends MCScriptHelperClass {
 
     public static void main(String[] args) {
         Code code = new Code(args);
-        code.execute();
-        code.end();
+        code.executeCode(code::execute);
     }
 
     public void execute() {
-        boolean isPowered = false;
-
         if (input.getIncomingPower() > 0) {
-            output.write("str", "Hello world!", "test");
-            output.write("int", "1", "time");
-            isPowered = true;
+            output.memory.write("str", "powered", "test");
+        } else {
+            output.memory.clear();
         }
 
-        String test = input.readString("test");
-        if (nullCheck(test)) {return;}
-
-        if (nullCheck(input.readInt("time"))) {return;}
-        int time = input.readInt("time");
-        if (!isPowered) {
-            output.write("int", "0", "time");
-        }
-        if (time == 0) {
-            output.write("str", "no", "test");
-        }
-
-        if (test.strip().equals("Hello world!")) {
-            output.print("IsPowered");
+        String isPowered = input.readString("test");
+        if (!nullCheck(isPowered)) {
+            output.print(isPowered);
         }
     }
 }

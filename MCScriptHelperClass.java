@@ -1,5 +1,4 @@
 public class MCScriptHelperClass {
-
     private String[] args;
     private MemoryData<?>[] memoryData;
     public Input input = new Input();
@@ -17,6 +16,11 @@ public class MCScriptHelperClass {
         } else {
             hasMemory = false;
         }
+    }
+
+    public void executeCode(Runnable executable) {
+        executable.run();
+        end();
     }
 
     private void loadMemory() {
@@ -121,20 +125,42 @@ public class MCScriptHelperClass {
     }
 
     class Output {
-        public void write(String datatype, String value, String topic) {
-            value = parseValue(value);
-            String cmd = "write#" + datatype + "#" + value + "#" + topic;
-            makeSyscall(cmd);
+        public Memory memory = new Memory();
+
+        class Memory {
+            public void write(String datatype, String value, String topic) {
+                value = parseValue(value);
+                topic = parseValue(topic);
+                String cmd = "write#" + datatype + "#" + value + "#" + topic;
+                makeSyscall(cmd);
+            }
+
+            public void delete(String topic) {
+                topic = parseValue(topic);
+                String cmd = "delete#0#" + topic;
+                makeSyscall(cmd);
+            }
+
+            public void delete(int address) {
+                String cmd = "delete#1" + address;
+                makeSyscall(cmd);
+            }
+
+            public void clear() {
+                String cmd = "clear";
+                makeSyscall(cmd);
+            }
+
+            public void write(String datatype, String value, String topic, int address) {
+                value = parseValue(value);
+                topic = parseValue(topic);
+                String cmd = "writeIndex#" + address + "#" + datatype + "#" + value + "#" + topic;
+                makeSyscall(cmd);
+            }
         }
 
         public void print(String message) {
             result.append(message).append("@@");
-        }
-
-        public void write(String datatype, String value, String topic, int address) {
-            value = parseValue(value);
-            String cmd = "writeIndex#" + address + "#" + datatype + "#" + value + "#" + topic;
-            makeSyscall(cmd);
         }
 
         private void makeSyscall(String cmd) {
