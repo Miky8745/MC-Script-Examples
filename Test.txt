@@ -25,6 +25,9 @@ public class Code extends MCScriptHelperClass {
             int value = power+1 > 15 ? 0 : power + 1;
             output.memory.write("int", String.valueOf(value), "power");
             output.redstone.setSignalStrength(power);
+        } else {
+            output.redstone.setSignalStrength(0);
+            output.memory.write("int", "0", "power");
         }
     }
 }
