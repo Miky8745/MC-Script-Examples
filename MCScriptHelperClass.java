@@ -147,7 +147,7 @@ public class MCScriptHelperClass {
             }
 
             public void clear() {
-                String cmd = "clear";
+                String cmd = "clear#null";
                 makeSyscall(cmd);
             }
 
