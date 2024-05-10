@@ -159,6 +159,11 @@ public class MCScriptHelperClass {
             }
         }
 
+        public void turnOnRedstoneSignal() {
+            String cmd = "turnOn#null";
+            makeSyscall(cmd);
+        }
+
         public void print(String message) {
             result.append(message).append("@@");
         }
