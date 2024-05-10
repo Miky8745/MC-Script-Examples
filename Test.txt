@@ -11,7 +11,10 @@ public class Code extends MCScriptHelperClass {
 
     public void execute() {
         Integer rawState = input.readInt("state");
-        if (nullCheck(rawState)) {return;}
+        if (nullCheck(rawState)) {
+            output.memory.write("int", "1", "state");
+            return;
+        }
         int state = Integer.parseInt(String.valueOf(rawState));
         String value = String.valueOf(state == 1 ? 0 : 1);
         output.memory.write("int", value, "state");
