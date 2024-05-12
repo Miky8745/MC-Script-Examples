@@ -1,4 +1,7 @@
-# How to Use the MC-Script Mod
+# MC-Script Mod
+
+## What is it?
+MC-Script is a modification for Minecraft that should make programing in Minecraft easier. It adds a custom block that is able to download and execute java programs from the internet.
 
 ## Starter Guide
 
