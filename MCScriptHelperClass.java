@@ -53,11 +53,11 @@ public class MCScriptHelperClass {
 
             switch (tClass) {
                 case "java.lang.Integer" -> {
-                    Integer object = Integer.parseInt(value);
+                    Integer object = Integer.valueOf(value);
                     return new MemoryData<>(Integer.class, object, topic);
                 }
                 case "java.lang.Float" -> {
-                    Float object = Float.parseFloat(value);
+                    Float object = Float.valueOf(value);
                     return new MemoryData<>(Float.class, object, topic);
                 }
                 case "java.lang.String" -> {
