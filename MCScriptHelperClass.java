@@ -53,8 +53,12 @@ public class MCScriptHelperClass {
 
             switch (tClass) {
                 case "java.lang.Integer" -> {
-                    Integer object = Integer.valueOf(value);
-                    return new MemoryData<>(Integer.class, object, topic);
+                    try {
+                        Integer object = Integer.valueOf(value);
+                        return new MemoryData<>(Integer.class, object, topic);
+                    } catch (NumberFormatException e) {
+                        throw new RuntimeException("Value " + value + " couldn't be parsed.", e);
+                    }
                 }
                 case "java.lang.Float" -> {
                     Float object = Float.valueOf(value);
