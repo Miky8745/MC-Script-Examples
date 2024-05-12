@@ -18,7 +18,10 @@ public class Code extends MCScriptHelperClass {
         }
 
         Integer strength = input.readInt("power");
-        if (nullCheck(strength)) {return;}
+        if (nullCheck(strength)) {
+            output.print("strength is null");
+            strength = 0;
+        }
         int power = Integer.parseInt(String.valueOf(strength));
         if (input.getIncomingPower() > 0) {
             output.redstone.turnOnRedstoneSignal();
