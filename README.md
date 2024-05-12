@@ -39,7 +39,7 @@ public class Code extends MCScriptHelperClass {
 }
 ```
 
-This simple method will print 'Hello world!' to the chat every second.
+This simple program will print 'Hello world!' to the chat every second.
 
 #### Uploading the Code
 
