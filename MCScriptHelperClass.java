@@ -53,20 +53,25 @@ public class MCScriptHelperClass {
 
             switch (tClass) {
                 case "java.lang.Integer" -> {
-                    try {
-                        Integer object = Integer.valueOf(value);
-                        return new MemoryData<>(Integer.class, object, topic);
-                    } catch (NumberFormatException e) {
-                        throw new RuntimeException("Value " + value + " couldn't be parsed.", e);
+                    Integer object;
+                    if (value.isBlank()) {
+                        object = null;
+                    } else {
+                        object = Math.round(Float.parseFloat(value));
                     }
+                    return new MemoryData<>(Integer.class, object, topic);
                 }
                 case "java.lang.Float" -> {
-                    Float object = Float.valueOf(value);
+                    Float object;
+                    if (value.isBlank()) {
+                        object = null;
+                    } else {
+                        object = Float.parseFloat(value);
+                    }
                     return new MemoryData<>(Float.class, object, topic);
                 }
                 case "java.lang.String" -> {
-                    String object = String.valueOf(value);
-                    return new MemoryData<>(String.class, object, topic);
+                    return new MemoryData<>(String.class, value.isBlank() ? null : value, topic);
                 }
                 default -> {
                     return null;
