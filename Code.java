@@ -11,8 +11,8 @@ public class Code extends MCScriptHelperClass {
 
     public void execute() {
         Integer initialized = input.readInt("init");
+        setExecutionInterval(2);
         if (nullCheck(initialized)) {
-            setExecutionInterval(2);
             output.memory.write("int", "1", "init");
             output.memory.write("int", "0", "power");
             return;
