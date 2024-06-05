@@ -40,6 +40,11 @@ public class MCScriptHelperClass {
         return o == null;
     }
 
+    public void setExecutionInterval(int ticks) {
+        String cmd = "setExecutionInterval";
+        output.makeSyscall(cmd);
+    }
+
     private static class Utils {
 
         private static MemoryData<?> getMemoryDataFromString(String line) {
