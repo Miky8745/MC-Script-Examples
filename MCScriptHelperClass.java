@@ -41,7 +41,7 @@ public class MCScriptHelperClass {
     }
 
     public void setExecutionInterval(int ticks) {
-        String cmd = "setExecutionInterval";
+        String cmd = "setExecutionInterval#" + ticks;
         output.makeSyscall(cmd);
     }
 
