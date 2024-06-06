@@ -93,4 +93,7 @@ Reference it using the `memory` variable in the `Output` class.
 - `nullCheck(Object value)`: Returns true if value is `null`
 - `setExecutionInterval(int ticks)`: Sets the delay between individual code executions
 ## Known issues and how to counter them
--
+### Redstone
+#### Value from input.getIncomingPower is not what it should be when using both redstone output and input:
+- Replace the block under the CPU block with non redstone conducting block
+- Get the redstone output with comparators or any other one way redstone gate
