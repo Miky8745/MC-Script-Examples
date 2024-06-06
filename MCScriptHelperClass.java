@@ -180,6 +180,11 @@ public class MCScriptHelperClass {
                 makeSyscall(cmd);
             }
 
+            public void turnOffRedstoneSignal() {
+                String cmd = "turnOff#null";
+                makeSyscall(cmd);
+            }
+
             public void setSignalStrength(int power) {
                 String cmd = "setSignalStrength#" + power;
                 makeSyscall(cmd);

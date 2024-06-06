@@ -77,8 +77,9 @@ Reference it using the `output` variable in the `MCScriptHelperClass`.
 
 Reference it using the `redstone` variable in the `Output` class.
 
-- `output.redstone.turnOnRedstoneSignal()`: Turns on the redstone signal for 1 second.
-- `output.redstone.setSignalStrength(int power)`: Saves the strength of the redstone signal. This method does not turn on the redstone signal; it only sets the power of future signals.
+-`output.redstone.turnOnRedstoneSignal()`: Turns on the redstone signal.
+-`output.redstone.turnOffRedstoneSignal()`: Turns off the redstone signal.
+-`output.redstone.setSignalStrength(int power)`: Saves the strength of the redstone signal. This method does not turn on the redstone signal; it only sets the power of future signals.
 
 #### Output.Memory
 
@@ -89,3 +90,13 @@ Reference it using the `memory` variable in the `Output` class.
 - `output.memory.delete(String topic)`: Deletes all data, including the topic, stored under the specified topic.
 - `output.memory.delete(int address)`: Deletes all data stored at the specified memory address.
 - `output.memory.clear()`: Deletes all data stored in memory; this method is called every time you upload a new program to the CPU.
+### Other
+
+- `nullCheck(Object value)`: Returns true if value is `null`
+- `setExecutionInterval(int ticks)`: Sets the delay between individual code executions
+
+## Known issues and how to counter them
+### Redstone
+#### Value from input.getIncomingPower is not what it should be when using both redstone output and input:
+- Replace the block under the CPU block with non redstone conducting block
+- Get the redstone output with comparators or any other one way redstone gate

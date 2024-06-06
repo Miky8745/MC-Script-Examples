@@ -30,8 +30,7 @@ public class Code extends MCScriptHelperClass {
             output.memory.write("int", String.valueOf(value), "power");
             output.redstone.setSignalStrength(power);
         } else {
-            output.redstone.setSignalStrength(0);
-            output.memory.write("int", "0", "power");
+            output.redstone.turnOffRedstoneSignal();
         }
     }
 }
