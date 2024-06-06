@@ -89,3 +89,5 @@ Reference it using the `memory` variable in the `Output` class.
 - `output.memory.delete(String topic)`: Deletes all data, including the topic, stored under the specified topic.
 - `output.memory.delete(int address)`: Deletes all data stored at the specified memory address.
 - `output.memory.clear()`: Deletes all data stored in memory; this method is called every time you upload a new program to the CPU.
+### Other
+- `nullCheck(value)`: Returns true if value is `null`
