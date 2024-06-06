@@ -77,9 +77,9 @@ Reference it using the `output` variable in the `MCScriptHelperClass`.
 
 Reference it using the `redstone` variable in the `Output` class.
 
--`output.redstone.turnOnRedstoneSignal()`: Turns on the redstone signal.
--`output.redstone.turnOffRedstoneSignal()`: Turns off the redstone signal.
--`output.redstone.setSignalStrength(int power)`: Saves the strength of the redstone signal. This method does not turn on the redstone signal; it only sets the power of future signals.
+- `output.redstone.turnOnRedstoneSignal()`: Turns on the redstone signal.
+- `output.redstone.turnOffRedstoneSignal()`: Turns off the redstone signal.
+- `output.redstone.setSignalStrength(int power)`: Saves the strength of the redstone signal. This method does not turn on the redstone signal; it only sets the power of future signals.
 
 #### Output.Memory
 
