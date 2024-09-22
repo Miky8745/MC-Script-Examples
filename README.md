@@ -79,7 +79,7 @@ Reference it using the `redstone` variable in the `Output` class.
 
 - `output.redstone.turnOnRedstoneSignal()`: Turns on the redstone signal.
 - `output.redstone.turnOffRedstoneSignal()`: Turns off the redstone signal.
-- `output.redstone.setSignalStrength(int power)`: Saves the strength of the redstone signal. This method does not turn on the redstone signal; it only sets the power of future signals.
+- `output.redstone.setSignalStrength(int power)`: Saves the strength of the redstone signal. this method does not turn on the redstone signal; it only sets the power for future signals.
 
 #### Output.Memory
 
@@ -100,3 +100,5 @@ Reference it using the `memory` variable in the `Output` class.
 #### Value from input.getIncomingPower is not what it should be when using both redstone output and input:
 - Replace the block under the CPU block with non redstone conducting block
 - Get the redstone output with comparators or any other one way redstone gate
+-----------------------------------------------------------
+Source code for anyone curious: https://github.com/Miky8745/MC-Script
